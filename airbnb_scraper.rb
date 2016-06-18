@@ -9,20 +9,43 @@ url = "https://www.airbnb.com/s/Brooklyn--NY--United-States"
 # Parse the page with Nokogiri
 page = Nokogiri::HTML(open(url))
 
-# Store data in arrays
+# Scrape the max number of pages and store in max_page variable
+page_numbers = []
+
+page.css('div.pagination ul li a[rel="next"]').each do |line|
+  page_numbers << line.text.delete("Next")
+end
+
+puts page_numbers
+
+max_page = page_numbers[2]
+
+puts max_page
+
+# Initialize empty arrays
 name = []
-page.css('h3.h5.listing-name').each do |line|
-  name << line.text.strip
-end
-
 price = []
-page.css('span.price-amount').each do |line|
-  price << line.text
-end
-
 details = []
-page.css('div.text-muted.listing-location.text-truncate').each do |line|
-  details << line.text.strip.delete("          ()").split(/·/)
+
+# Loop once for every page of search results
+max_page.to_i.times do |i|
+
+  # Open search results page
+  url = "https://www.airbnb.com/s/Brooklyn--NY--United-States?page=#{i+1}"
+  page = Nokogiri::HTML(open(url))
+
+  # Store data in arrays
+  page.css('h3.h5.listing-name').each do |line|
+    name << line.text.strip
+  end
+
+  page.css('span.price-amount').each do |line|
+    price << line.text
+  end
+
+  page.css('div.text-muted.listing-location.text-truncate').each do |line|
+    details << line.text.strip.delete("          ()").split(/·/)
+  end
 end
 
 # puts details
