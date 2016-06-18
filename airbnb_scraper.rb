@@ -44,7 +44,13 @@ max_page.to_i.times do |i|
   end
 
   page.css('div.text-muted.listing-location.text-truncate').each do |line|
-    details << line.text.strip.delete("          ()").split(/·/)
+    subarray = line.text.strip.split(/ · /)
+    if subarray[2] == nil
+      details << [subarray[0], subarray[1]]
+    else
+      details << [subarray[0], subarray[2]]
+    end
+    # details << line.text.strip.split(/ · /)
   end
 end
 
@@ -52,8 +58,8 @@ end
 
 # Write data to CSV file
 CSV.open("airbnb_listings.csv", "w") do |file|
-  file << ["Listing Name", "Price", "Room Type"]
+  file << ["Listing Name", "Price", "Room Type", "Reviews"]
   name.length.times do |i|
-    file << [name[i], price[i], details[i][0]]
+    file << [name[i], price[i], details[i][0], details[i][1]]
   end
 end
