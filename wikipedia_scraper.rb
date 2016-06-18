@@ -1,11 +1,11 @@
+require 'open-uri'
 require 'HTTParty'
 require 'nokogiri'
 require 'JSON'
 require 'Pry'
 require 'csv'
-require 'curb'
 
 url = "https://en.wikipedia.org/wiki/List_of_current_NBA_team_rosters"
-page = Curl.get(url)
+page = Nokogiri::HTML(open(url))
 
-puts page.body_str.css('a')
+puts page
