@@ -31,8 +31,16 @@ details = []
 max_page.to_i.times do |i|
 
   # Open search results page
-  url = "https://www.airbnb.com/s/Brooklyn--NY--United-States?page=#{i+1}"
-  page = Nokogiri::HTML(open(url))
+  begin
+    url = "https://www.airbnb.com/s/Brooklyn--NY--United-States?page=#{i+1}"
+    page = Nokogiri::HTML(open(url))
+  rescue OpenURI::HTTPError => error
+    response = error.io
+    response.status
+    # => ["503", "Service Unavailable"]
+    response.string
+    # => <!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n<html DIR=\"LTR\">\n<head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"viewport\" content=\"initial-scale=1\">...
+  end
 
   # Store data in arrays
   page.css('h3.h5.listing-name').each do |line|
