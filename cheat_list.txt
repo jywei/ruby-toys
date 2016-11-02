@@ -1,0 +1,24 @@
+Terminal commands:
+
+pwd - print working directory - show the path of the current directory
+ls - list files and folders in current directory
+ls -a - list files and folders including hidden files
+cd directoryname - move into a directory called directoryname as long as it's in current directory
+cd .. - move up one directory to parent directory
+mkdir directoryname - create a directory called directoryname
+mkdir directoryname/test_directory - create a directory called test_directory within directoryname
+mkdir -p newdirectoryname/test_directory - create a directory called newdirectory and within it another directory called test_directory if newdirectoryname does not exist
+cd directoryname/test_directory - navigate directory to test_directory if in parent directory of directoryname
+touch newfile.txt - create a new file called newfile.txt in the current directory
+rm newfile.txt - delete newfile.txt
+mv newfile.txt anothernewfile.txt - rename newfile.txt to anothernewfile.txt
+cp newfile.txt stunningfile.txt - copy newfile.txt and create another file called stunningfile.txt with the contents of newfile.txt
+rmdir directoryname - delete directoryname directory if it's empty, will not work if directoryname is not empty
+rm -rf directoryname - force delete directoryname directory even if it is not empty, remove all directories and files within it as well
+
+To create ruby_projects directory, type in the following:
+pwd   # to show working directory, ensure it shows home/ubuntu, if not navigate to it, make sure it's not home/ubuntu/workspace
+mkdir ruby_projects  # to create ruby_projects folder
+cd ruby_projects  # to navigate to ruby_projects folder
+
+home/ubuntu/workspace is actually is Ruby on Rails application if you choose the ruby stack to create your workspace, since we don't want to work in a Rails application right now we move up one directory from it (out of workspace) and do our work there.
