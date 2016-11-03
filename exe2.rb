@@ -26,11 +26,25 @@ card_details = [{ace_of_spades: {numeric_value: 1, value: 11}},
                 {spades_3: {numeric_value: 12, value: 3}},
                 {spades_2: {numeric_value: 13, value: 2}}]
 
-def get_card_value()
+def get_card_type(card_details, numeric_value)
+  card_details.each do |name|
+    name.each do |key, value|
+      new_value = value[:numeric_value]
+      return key if new_value == numeric_value
+    end
+  end
+end
 
+def get_card_value(card_details, card)
+  card_details.each do |name|
+    name.each do |key, value|
+      new_value = value[:numeric_value]
+      return value[:value] if new_value == card
+    end
+  end
 end
 
 deck = (1..13).to_a.shuffle!
 print deck
-puts card_details
+# puts card_details
 puts " "
