@@ -1,4 +1,5 @@
 require 'json'
+require 'awesome_print'
 require_relative 'file_reader'
 
 class JsonReader < FileReader
@@ -6,6 +7,6 @@ class JsonReader < FileReader
     puts 'JSON reader test'
     json_file = File.read(@file)
     contents = JSON.load(json_file)
-    puts contents
+    ap contents
   end
 end

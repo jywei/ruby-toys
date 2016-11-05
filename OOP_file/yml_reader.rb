@@ -16,5 +16,5 @@ class YmlReader < FileReader
   end
 end
 
-x = YmlReader.new('sample.yml')
-x.read
+# x = YmlReader.new('sample.yml')
+# x.read

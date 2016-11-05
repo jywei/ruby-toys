@@ -15,5 +15,5 @@ class CsvReader < FileReader
   end
 end
 
-x = CsvReader.new('sample.csv')
-x.read
+# x = CsvReader.new('sample.csv')
+# x.read
