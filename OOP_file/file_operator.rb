@@ -1,6 +1,7 @@
-# require_relative 'file_reader'
-# require_relative 'csv_reader'
+require_relative 'file_reader'
+require_relative 'csv_reader'
 require_relative 'yml_reader'
+require_relative 'json_reader'
 
 # x = FileReader.new('sample.txt')
 # x = FileReader.new(ARGV[0])
@@ -10,5 +11,7 @@ require_relative 'yml_reader'
 
 # CsvReader.new(ARGV[0]).read
 
-YmlReader.new(ARGV[0]).read
+# YmlReader.new(ARGV[0]).read
+
+JsonReader.new(ARGV[0]).read
 
