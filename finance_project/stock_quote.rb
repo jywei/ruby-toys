@@ -16,5 +16,3 @@ class StockQuote
   end
 end
 
-stock_price = StockQuote.price_by_symbol('AAPL')
-stock_written = StockQuote.write_price_by_symbol('AAPL', stock_price)
