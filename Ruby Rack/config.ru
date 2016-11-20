@@ -1,8 +1,10 @@
-require './hello.rb'
+# require './hello.rb'
+# require './print.rb'
 require './timing.rb'
 
 use Timing, pid: true, { puts "Timing is being initialized!" }
-run Hello
+# run Hello
+run Print
 
 
 # require './main.rb'
