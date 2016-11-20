@@ -17,6 +17,8 @@ end
 
 Router.new.instance_eval { p @routes }
 
+# <= main:Object
+
 Router.new.routes do          #simple DSL
   match "/users" => "users#index"
   match "/login" => "sessions#new"
