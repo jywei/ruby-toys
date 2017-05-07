@@ -1,12 +1,12 @@
+
 def change_salaries(employees_array, amount)
+  change_salary = ->(slry, amt) { slry + amt }
+
   employees_array.map do |name, salary|
-    [name, change_salary(salary, amount)]
+    [name, change_salary.call(salary, amount)]
   end
 end
 
-def change_salary(salary, amount)
-  salary + amount
-end
 
 employees = [
   [ "Bob",  100000.0 ],
