@@ -86,13 +86,13 @@ require 'benchmark'
 a = [14, 33, 27, 35, 10]
 
 Benchmark.bm do |x|
-  x.report {5000.times { init_arr(5).bubble_sort }}
-  x.report {5000.times { init_arr(5).insertion_sort }}
-  x.report {5000.times { init_arr(5).quick_sort }}
-  x.report {5000.times { init_arr(5).merge_sort }}
+  x.report { 5000.times { init_arr(5).bubble_sort }}
+  x.report { 5000.times { init_arr(5).insertion_sort }}
+  x.report { 5000.times { init_arr(5).quick_sort }}
+  x.report { 5000.times { init_arr(5).merge_sort }}
 
-  x.report {5000.times { init_arr(100).bubble_sort }}
-  x.report {5000.times { init_arr(100).insertion_sort }}
-  x.report {5000.times { init_arr(100).quick_sort }}
-  x.report {5000.times { init_arr(100).merge_sort }}
+  x.report { 5000.times { init_arr(100).bubble_sort }}
+  x.report { 5000.times { init_arr(100).insertion_sort }}
+  x.report { 5000.times { init_arr(100).quick_sort }}
+  x.report { 5000.times { init_arr(100).merge_sort }}
 end
