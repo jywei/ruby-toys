@@ -24,11 +24,9 @@ end
 
 # Assumption: s1.size == s2.size + 1
 def is_one_away_diff_lengths(s1, s2)
-  buffer = 0
   count_diff = 0
   s1.each_with_index do |_ele, index|
-    next if s1[index + buffer] == s2[index]
-    buffer = 1
+    next if s1[index + count_diff] == s2[index]
     count_diff += 1
     return false if count_diff > 1
   end
