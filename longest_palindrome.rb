@@ -60,13 +60,13 @@ end
 def slow_longest_palindrome(s)
   return s if s.length <= 1
 
-longest = s[0]
-(0...s.length).each do |i|
-  (i...s.length).each do |j|
-    if s[i..j] == s[i..j].reverse && s[i..j].length > longest.length
-      longest = s[i..j]
+  longest = s[0]
+  (0...s.length).each do |i|
+    (i...s.length).each do |j|
+      if s[i..j] == s[i..j].reverse && s[i..j].length > longest.length
+        longest = s[i..j]
+      end
     end
   end
-end
-longest
+  longest
 end
